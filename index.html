@@ -18,8 +18,8 @@
 
         /* タイトル */
         h1 {
-            margin: 10px 0;
-            font-size: calc(12px + 1vw); /* アカウントタイトルと同じサイズに調整 */
+            margin: 5px 0; /* 上下のマージンを小さく設定 */
+            font-size: calc(12px + 1vw); /* サイズ調整 */
             text-align: center;
         }
 
@@ -59,7 +59,7 @@
 
         /* モーダルのスタイル */
         .modal {
-            display: none;
+            display: none; /* 初期状態は非表示 */
             position: fixed;
             top: 0;
             left: 0;
@@ -106,17 +106,8 @@
 </head>
 <body oncontextmenu="return false;"> <!-- 右クリックを無効にする -->
 
-<h1>クリックで画像拡大　3桁数字が垢番号</h1>
-<h1>名誉画像がない垢は全て名誉2　質問はコメント下さい</h1>
-
-<style>
-    h1 {
-        margin: 0px 0; /* 上下のマージンを小さく設定 */
-        font-size: calc(12px + 1vw); /* サイズ調整 */
-        text-align: center;
-    }
-</style>
-
+    <h1>クリックで画像拡大　3桁数字が垢番号</h1>
+    <h1>名誉画像がない垢は全て名誉2　質問はコメント下さい</h1>
     
     <!-- 垢番号 -->
     <div class="account">
