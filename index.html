@@ -15,35 +15,51 @@
             font-family: Arial, sans-serif;
             user-select: none; /* テキストの選択を無効にする */
         }
+
+        /* タイトル */
         h1 {
-            margin-bottom: 20px;
+            margin: 10px 0;
+            font-size: calc(16px + 2vw); /* 画面サイズに合わせてフォントサイズを調整 */
+            text-align: center;
         }
+
         .account {
             margin: 10px; /* アカウント間隔 */
             text-align: center;
+            width: 100%;
+            max-width: 1200px; /* 最大幅を設定 */
         }
+
         .account-title {
-            font-size: 30px;
+            font-size: calc(14px + 1vw); /* 画面サイズに合わせて調整 */
             font-weight: bold;
             margin-bottom: 10px;
-            color: #FFE500; /* 文字の色 */
+            color: #FFE500;
         }
+
         .images {
-            display: flex; /* 横並びにするためのFlexbox */
-            justify-content: center; /* 中央揃え */
-            flex-wrap: wrap; /* 溢れた場合は折り返す */
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px; /* 画像間の隙間 */
+            margin-top: 10px;
         }
+
         .images img {
-            max-width: 200px; /* 最大幅200pxに設定 */
-            max-height: 100px; /* 最大高さ200pxに設定 */
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
-            margin: 3px; /* 画像間の隙間 */
-            height: auto; /* 高さを自動調整 */
-            cursor: pointer; /* クリック可能なポインタ */
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
+
+        .images img:hover {
+            transform: scale(1.1); /* 画像にホバー効果 */
+        }
+
         /* モーダルのスタイル */
         .modal {
-            display: none; /* 初期状態は非表示 */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -52,12 +68,14 @@
             background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
-            z-index: 1000; /* 他の要素の上に表示 */
+            z-index: 1000;
         }
+
         .modal img {
-            max-width: 90%; /* モーダル内の画像の最大幅 */
-            max-height: 90%; /* モーダル内の画像の最大高さ */
+            max-width: 90%;
+            max-height: 90%;
         }
+
         .overlay {
             position: absolute;
             top: 0;
@@ -66,21 +84,24 @@
             bottom: 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* 中心に配置 */
-            margin-top: -150px; /* 上にずらすためのマイナスマージン */
-            background: rgba(0, 0, 0, 0.1); /* 背景の不透明度 */
+            align-items: center;
+            margin-top: -150px;
+            background: rgba(0, 0, 0, 0.1);
             color: white;
-            font-size: calc(2vw + 2vh); /* 画面サイズに合わせたフォントサイズ */
+            font-size: calc(2vw + 2vh);
             text-align: center;
-            opacity: 0.1; /* 文字の不透明度 */
-            transition: opacity 0.3s ease; /* 不透明度の変化にアニメーションを追加 */
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
         }
+
         .modal:target .overlay {
-            opacity: 1; /* モーダルが表示されたら不透明度を1に */
+            opacity: 1;
         }
+
         .modal:target {
-            display: flex; /* モーダルを表示 */
+            display: flex;
         }
+
     </style>
 </head>
 <body oncontextmenu="return false;"> <!-- 右クリックを無効にする -->
@@ -116,34 +137,6 @@
         </div>
     </div>
 
-    <!-- 垢番号 -->
-    <div class="account">
-        <div class="account-title">000 - BE 0万 - 0円</div>
-        <div class="images">
-            <a href="#modal" onclick="openModal('https://example.com/image8.jpg')">
-                <img src="https://example.com/image8.jpg" alt="539-画像1">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image9.jpg')">
-                <img src="https://example.com/image9.jpg" alt="539-画像2">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image10.jpg')">
-                <img src="https://example.com/image10.jpg" alt="539-画像3">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image11.jpg')">
-                <img src="https://example.com/image11.jpg" alt="539-画像4">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image12.jpg')">
-                <img src="https://example.com/image12.jpg" alt="539-画像5">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image13.jpg')">
-                <img src="https://example.com/image13.jpg" alt="539-画像6">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image14.jpg')">
-                <img src="https://example.com/image14.jpg" alt="539-画像7">
-            </a>
-        </div>
-    </div>
-    
     <!-- モーダル -->
     <div id="modal" class="modal" onclick="closeModal()">
         <img id="modal-image" src="" alt="拡大画像">
