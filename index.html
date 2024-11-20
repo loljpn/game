@@ -19,7 +19,7 @@
         /* タイトル */
         h1 {
             margin: 10px 0;
-            font-size: calc(16px + 2vw); /* 画面サイズに合わせてフォントサイズを調整 */
+            font-size: calc(12px + 1vw); /* アカウントタイトルと同じサイズに調整 */
             text-align: center;
         }
 
@@ -31,7 +31,7 @@
         }
 
         .account-title {
-            font-size: calc(14px + 1vw); /* 画面サイズに合わせて調整 */
+            font-size: calc(12px + 1vw); /* 画面サイズに合わせて調整 */
             font-weight: bold;
             margin-bottom: 10px;
             color: #FFE500;
@@ -106,33 +106,42 @@
 </head>
 <body oncontextmenu="return false;"> <!-- 右クリックを無効にする -->
 
-    <h1>クリックで画像拡大　3桁数字が垢番号</h1>
-    <h1>名誉画像がない垢は全て名誉2　質問はコメント下さい</h1>
+<h1>クリックで画像拡大　3桁数字が垢番号</h1>
+<h1>名誉画像がない垢は全て名誉2　質問はコメント下さい</h1>
+
+<style>
+    h1 {
+        margin: 0px 0; /* 上下のマージンを小さく設定 */
+        font-size: calc(12px + 1vw); /* サイズ調整 */
+        text-align: center;
+    }
+</style>
+
     
     <!-- 垢番号 -->
     <div class="account">
         <div class="account-title">000 - BE 0万 - 0円</div>
         <div class="images">
             <a href="#modal" onclick="openModal('https://example.com/image1.jpg')">
-                <img src="https://example.com/image1.jpg" alt="423-画像1">
+                <img src="https://example.com/image1.jpg" alt="画像1">
             </a>
             <a href="#modal" onclick="openModal('https://example.com/image2.jpg')">
-                <img src="https://example.com/image2.jpg" alt="423-画像2">
+                <img src="https://example.com/image2.jpg" alt="画像2">
             </a>
             <a href="#modal" onclick="openModal('https://example.com/image3.jpg')">
-                <img src="https://example.com/image3.jpg" alt="423-画像3">
+                <img src="https://example.com/image3.jpg" alt="画像3">
             </a>
             <a href="#modal" onclick="openModal('https://example.com/image4.jpg')">
-                <img src="https://example.com/image4.jpg" alt="423-画像4">
+                <img src="https://example.com/image4.jpg" alt="画像4">
             </a>
             <a href="#modal" onclick="openModal('https://example.com/image5.jpg')">
-                <img src="https://example.com/image5.jpg" alt="423-画像5">
+                <img src="https://example.com/image5.jpg" alt="画像5">
             </a>
             <a href="#modal" onclick="openModal('https://example.com/image6.jpg')">
-                <img src="https://example.com/image6.jpg" alt="423-画像6">
+                <img src="https://example.com/image6.jpg" alt="画像6">
             </a>
             <a href="#modal" onclick="openModal('https://example.com/image7.jpg')">
-                <img src="https://example.com/image7.jpg" alt="423-画像7">
+                <img src="https://example.com/image7.jpg" alt="画像7">
             </a>
         </div>
     </div>
