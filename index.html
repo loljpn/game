@@ -94,14 +94,13 @@
             transition: opacity 0.3s ease;
         }
 
-        .modal:target .overlay {
-            opacity: 1;
+        .modal.open {
+            display: flex; /* モーダルを表示 */
         }
 
-        .modal:target {
-            display: flex;
+        .modal.open .overlay {
+            opacity: 1; /* オーバーレイの不透明度を変える */
         }
-
     </style>
 </head>
 <body oncontextmenu="return false;"> <!-- 右クリックを無効にする -->
@@ -113,27 +112,13 @@
     <div class="account">
         <div class="account-title">000 - BE 0万 - 0円</div>
         <div class="images">
-            <a href="#modal" onclick="openModal('https://example.com/image1.jpg')">
-                <img src="https://example.com/image1.jpg" alt="画像1">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image2.jpg')">
-                <img src="https://example.com/image2.jpg" alt="画像2">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image3.jpg')">
-                <img src="https://example.com/image3.jpg" alt="画像3">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image4.jpg')">
-                <img src="https://example.com/image4.jpg" alt="画像4">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image5.jpg')">
-                <img src="https://example.com/image5.jpg" alt="画像5">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image6.jpg')">
-                <img src="https://example.com/image6.jpg" alt="画像6">
-            </a>
-            <a href="#modal" onclick="openModal('https://example.com/image7.jpg')">
-                <img src="https://example.com/image7.jpg" alt="画像7">
-            </a>
+            <img src="https://example.com/image1.jpg" alt="画像1" onclick="openModal('https://example.com/image1.jpg')">
+            <img src="https://example.com/image2.jpg" alt="画像2" onclick="openModal('https://example.com/image2.jpg')">
+            <img src="https://example.com/image3.jpg" alt="画像3" onclick="openModal('https://example.com/image3.jpg')">
+            <img src="https://example.com/image4.jpg" alt="画像4" onclick="openModal('https://example.com/image4.jpg')">
+            <img src="https://example.com/image5.jpg" alt="画像5" onclick="openModal('https://example.com/image5.jpg')">
+            <img src="https://example.com/image6.jpg" alt="画像6" onclick="openModal('https://example.com/image6.jpg')">
+            <img src="https://example.com/image7.jpg" alt="画像7" onclick="openModal('https://example.com/image7.jpg')">
         </div>
     </div>
 
@@ -147,12 +132,19 @@
         // モーダルを開く関数
         function openModal(src) {
             document.getElementById('modal-image').src = src; // 画像のsrcを設定
-            document.getElementById('modal').style.display = 'flex'; // モーダルを表示
+            document.getElementById('modal').classList.add('open'); // モーダルを表示
+            history.pushState(null, null, ""); // URLのハッシュをクリア
         }
 
         // モーダルを閉じる関数
         function closeModal() {
-            document.getElementById('modal').style.display = 'none'; // モーダルを非表示
+            document.getElementById('modal').classList.remove('open'); // モーダルを非表示
+            history.pushState(null, null, ""); // URLのハッシュをクリア
+        }
+
+        // ページ読み込み時にURLのハッシュがある場合にモーダルが開かないように
+        if (window.location.hash === "#modal") {
+            history.pushState(null, null, ""); // URLのハッシュをクリア
         }
 
         // コピーを無効にする
