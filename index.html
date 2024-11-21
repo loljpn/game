@@ -1,4 +1,10 @@
-<!DOCTYPE html>&#10;<html lang="ja">&#10;<head>&#10;&#32;&#32;&#32;&#32;<meta charset="UTF-8">&#10;&#32;&#32;&#32;&#32;<meta name="viewport" content="width=device-width, initial-scale=1.0">&#10;&#32;&#32;&#32;&#32;<title>&#30011;&#20687;&#19968;&#35239;</title>&#10;&#32;&#32;&#32;&#32;<style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像一覧</title>
+    <style>
         /* スタイル */
         body {
             background-color: #1a1a1a;
@@ -77,7 +83,34 @@
         .modal.open img {
             cursor: zoom-out;
         }
-    </style>&#10;</head>&#10;<body>&#10;&#10;&#32;&#32;&#32;&#32;<h1>&#35;&#12364;&#22434;&#30058;&#21495;&#32;&#20516;&#19979;&#12370;&#19981;&#21487;</h1>&#10;&#32;&#32;&#32;&#32;<h1>&#21517;&#35465;&#30011;&#20687;&#12364;&#12394;&#12356;&#22434;&#12399;&#21517;&#35465;&#50;&#12288;&#36074;&#21839;&#12399;&#12467;&#12513;&#12531;&#12488;&#19979;&#12373;&#12356;</h1>&#10;&#32;&#32;&#32;&#32;&#32;&#32;<h1>&#22434;&#30058;&#21495;&#12463;&#12522;&#12483;&#12463;&#12391;&#30011;&#20687;&#34920;&#31034;&#12288;&#30011;&#20687;&#12463;&#12522;&#12483;&#12463;&#12391;&#25313;&#22823;</h1>&#10;&#10;&#32;&#32;&#32;&#32;<!-- モーダル用の画像拡大表示 -->&#10;&#32;&#32;&#32;&#32;<div id="modal" class="modal" onclick="closeModal()">&#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<img id="modal-img" src="" alt="modal image">&#10;&#32;&#32;&#32;&#32;</div>&#10;&#10;&#32;&#32;&#32;&#32;<div id="accounts-container"></div>&#10;&#10;&#32;&#32;&#32;&#32;<script>
+    </style>
+</head>
+<body>
+
+    <h1>#が垢番号 値下げ不可</h1>
+    <h1>名誉画像がない垢は名誉2　質問はコメント下さい</h1>
+      <h1>垢番号クリックで画像表示　画像クリックで拡大</h1>
+
+    <!-- モーダル用の画像拡大表示 -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="modal image">
+    </div>
+
+    <div id="accounts-container"></div>
+
+    <script>
+        // 右クリックを無効にする
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault();  // 右クリックメニューの表示を防ぐ
+        });
+
+        // F12キーを無効にする
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'F12' || event.keyCode === 123) {
+                event.preventDefault();  // F12キーの動作を防ぐ
+            }
+        });
+
         // 各アカウントごとに画像のURLを配列として管理
         const accounts = [
             {
@@ -264,4 +297,7 @@ function closeModal() {
     modal.classList.remove('open');
 }
 
-    </script>&#10;&#10;</body>&#10;</html>&#10;
+    </script>
+
+</body>
+</html>
