@@ -13,25 +13,24 @@
             align-items: center;
             margin: 0;
             font-family: Arial, sans-serif;
-            user-select: none; /* テキストの選択を無効にする */
+            user-select: none;
         }
 
-        /* タイトル */
         h1 {
-            margin: 5px 0; /* 上下のマージンを小さく設定 */
-            font-size: calc(12px + 1vw); /* サイズ調整 */
+            margin: 5px 0;
+            font-size: calc(12px + 1vw);
             text-align: center;
         }
 
         .account {
-            margin: 10px; /* アカウント間隔 */
+            margin: 10px;
             text-align: center;
             width: 100%;
-            max-width: 1200px; /* 最大幅を設定 */
+            max-width: 1200px;
         }
 
         .account-title {
-            font-size: calc(12px + 1vw); /* 画面サイズに合わせて調整 */
+            font-size: calc(12px + 1vw);
             font-weight: bold;
             margin-bottom: 10px;
             color: #FFE500;
@@ -41,7 +40,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px; /* 画像間の隙間 */
+            gap: 10px;
             margin-top: 10px;
         }
 
@@ -54,12 +53,11 @@
         }
 
         .images img:hover {
-            transform: scale(1.1); /* 画像にホバー効果 */
+            transform: scale(1.1);
         }
 
-        /* モーダルのスタイル */
         .modal {
-            display: none; /* 初期状態は非表示 */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -95,56 +93,56 @@
         }
 
         .modal.open {
-            display: flex; /* モーダルを表示 */
+            display: flex;
         }
 
         .modal.open .overlay {
-            opacity: 1; /* オーバーレイの不透明度を変える */
+            opacity: 1;
         }
     </style>
 </head>
-<body oncontextmenu="return false;"> <!-- 右クリックを無効にする -->
+<body>
 
     <h1>クリックで画像拡大　3桁数字が垢番号</h1>
     <h1>名誉画像がない垢は全て名誉2　質問はコメント下さい</h1>
     
-    <!-- 垢番号 -->
     <div class="account">
         <div class="account-title">000 - BE 0万 - 0円</div>
         <div class="images">
-            <img src="https://example.com/image1.jpg" alt="画像1" onclick="openModal('https://example.com/image1.jpg')">
-            <img src="https://example.com/image2.jpg" alt="画像2" onclick="openModal('https://example.com/image2.jpg')">
-            <img src="https://example.com/image3.jpg" alt="画像3" onclick="openModal('https://example.com/image3.jpg')">
-            <img src="https://example.com/image4.jpg" alt="画像4" onclick="openModal('https://example.com/image4.jpg')">
-            <img src="https://example.com/image5.jpg" alt="画像5" onclick="openModal('https://example.com/image5.jpg')">
-            <img src="https://example.com/image6.jpg" alt="画像6" onclick="openModal('https://example.com/image6.jpg')">
-            <img src="https://example.com/image7.jpg" alt="画像7" onclick="openModal('https://example.com/image7.jpg')">
+            <!-- Imgurの画像リンク -->
+            <img src="https://i.imgur.com/7HFlzDs.jpg" alt="画像1" onclick="openModal('https://i.imgur.com/7HFlzDs.jpg')">
         </div>
     </div>
 
-    <!-- モーダル -->
     <div id="modal" class="modal" onclick="closeModal()">
         <img id="modal-image" src="" alt="拡大画像">
         <div class="overlay">gametrade.jp/users/1825207</div>
     </div>
 
     <script>
+        // F12と右クリックを無効にする
+        document.addEventListener("keydown", function(e) {
+            // F12やCtrl+Shift+Iを無効化
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();  // 右クリックメニューを無効化
+        });
+
         // モーダルを開く関数
         function openModal(src) {
-            document.getElementById('modal-image').src = src; // 画像のsrcを設定
-            document.getElementById('modal').classList.add('open'); // モーダルを表示
-            history.pushState(null, null, ""); // URLのハッシュをクリア
+            document.getElementById('modal-image').src = src;
+            document.getElementById('modal').classList.add('open');
+            history.pushState(null, null, "");
         }
 
         // モーダルを閉じる関数
         function closeModal() {
-            document.getElementById('modal').classList.remove('open'); // モーダルを非表示
-            history.pushState(null, null, ""); // URLのハッシュをクリア
-        }
-
-        // ページ読み込み時にURLのハッシュがある場合にモーダルが開かないように
-        if (window.location.hash === "#modal") {
-            history.pushState(null, null, ""); // URLのハッシュをクリア
+            document.getElementById('modal').classList.remove('open');
+            history.pushState(null, null, "");
         }
 
         // コピーを無効にする
