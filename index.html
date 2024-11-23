@@ -25,32 +25,38 @@
         }
 
         .account-title {
-            font-size: calc(12px + 1vw);
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #FFE500;
-            cursor: pointer; /* クリック可能であることを示す */
-        }
+    font-size: calc(12px + 1vw);
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #FF1493;  /* かっこいいピンク（ディープピンク）に変更 */
+    cursor: pointer; /* クリック可能であることを示す */
+}
+
+
 
         .images {
-            display: none; /* 初期状態では非表示 */
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
+    display: none; /* 初期状態では非表示 */
+    flex-direction: column; /* 画像を縦に並べる */
+    align-items: center; /* 画像を中央揃えにする */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
 
-        .images img {
-            max-height: 70px;
-            max-width: 100px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
+.images img {
+    max-height: 100px;
+    max-width: 120px;
+    border-radius: 8px;  /* 角を丸くする */
+    border: 3px solid #FFD700;  /* 明るい金色で縁をつける */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
 
-        .images img:hover {
-            transform: scale(1.05);
-        }
+.images img:hover {
+    transform: scale(1.05);  /* ホバー時に拡大する */
+    border-color: #FF6347;  /* ホバー時に縁の色を変更（例えばトマト色） */
+}
+
 
         .modal {
             display: none;
